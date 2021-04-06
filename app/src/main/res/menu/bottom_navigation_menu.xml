@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/page_Mes"
+        android:enabled="true"
+        android:icon="@drawable/tab_weixin_normal"
+        android:title="@string/message" />
+
+    <item
+        android:id="@+id/page_Fri"
+        android:enabled="true"
+        android:icon="@drawable/tab_find_frd_normal"
+        android:title="@string/friends" />
+
+    <item
+        android:id="@+id/page_Ctt"
+        android:enabled="true"
+        android:icon="@drawable/tab_address_normal"
+        android:title="@string/contacts" />
+
+    <item
+        android:id="@+id/page_Set"
+        android:enabled="true"
+        android:icon="@drawable/tab_settings_normal"
+        android:title="@string/settings" />
+
+</menu>

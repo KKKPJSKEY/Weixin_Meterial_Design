@@ -1,0 +1,16 @@
+<resources>
+    <!--    app标题-->
+    <string name="app_name">微信80.0</string>
+    <!--    导航栏标题-->
+    <string name="message">信息</string>
+    <string name="friends">朋友</string>
+    <string name="contacts">联系人</string>
+    <string name="settings">设置</string>
+    <!--    界面二级标题-->
+    <string name="mesText">这是信息页面！</string>
+    <string name="friText">这是朋友页面！</string>
+    <string name="cttText">这是联系人页面！</string>
+    <string name="setText">这是设置页面！</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
