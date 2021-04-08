@@ -7,44 +7,74 @@
     android:visibility="visible"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/top_navigation_menu"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            app:title="@string/app_name" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Note: A RecyclerView can also be used -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- Scrollable content -->
+
+    </androidx.core.widget.NestedScrollView>
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
         <FrameLayout
             android:id="@+id/frameLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </FrameLayout>
-<!--        <fragment-->
-<!--            android:id="@+id/mesFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:name="Weixin_MDment">-->
-<!--        </fragment>-->
-<!--        <fragment-->
-<!--            android:id="@+id/friFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:name="Weixin_MDment">-->
-<!--        </fragment>-->
-<!--        <fragment-->
-<!--            android:id="@+id/cttFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:name="Weixin_MDment">-->
-<!--        </fragment>-->
-<!--        <fragment-->
-<!--            android:id="@+id/setFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:name="Weixin_MDment">-->
-<!--        </fragment>-->
+            android:layout_height="match_parent"></FrameLayout>
+        <!--        <fragment-->
+        <!--            android:id="@+id/mesFragment"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:name="Weixin_MDment">-->
+        <!--        </fragment>-->
+        <!--        <fragment-->
+        <!--            android:id="@+id/friFragment"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:name="Weixin_MDment">-->
+        <!--        </fragment>-->
+        <!--        <fragment-->
+        <!--            android:id="@+id/cttFragment"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:name="Weixin_MDment">-->
+        <!--        </fragment>-->
+        <!--        <fragment-->
+        <!--            android:id="@+id/setFragment"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:name="Weixin_MDment">-->
+        <!--        </fragment>-->
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

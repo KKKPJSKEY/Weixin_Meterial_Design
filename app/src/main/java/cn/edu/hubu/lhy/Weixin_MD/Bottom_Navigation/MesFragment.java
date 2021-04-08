@@ -1,18 +1,26 @@
-package cn.edu.hubu.lhy.Weixin_MD;
+package cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation;
 
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
+import cn.edu.hubu.lhy.Weixin_MD.R;
+import cn.edu.hubu.lhy.Weixin_MD.Recycler_View.MyAdapter;
+import cn.edu.hubu.lhy.Weixin_MD.Recycler_View.NatureModel;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CttFragment#newInstance} factory method to
+ * Use the {@link MesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CttFragment extends Fragment {
+public class MesFragment extends Fragment {
 
 //    // TODO: Rename parameter arguments, choose names that match
 //    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,6 +66,21 @@ public class CttFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ctt, container, false);
+        View view = inflater.inflate(R.layout.fragment_mes, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+//        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+
+//        MyAdapter adapter = new MyAdapter(this, NatureModel.getObjectList());
+        MyAdapter adapter = new MyAdapter(getContext(), NatureModel.getObjectList());
+        recyclerView.setAdapter(adapter);
+
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+//        return inflater.inflate(R.layout.fragment_mes, container, false);
+        return view;
     }
 }

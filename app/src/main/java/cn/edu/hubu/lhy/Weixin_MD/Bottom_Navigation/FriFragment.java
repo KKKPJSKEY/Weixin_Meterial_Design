@@ -1,4 +1,4 @@
-package cn.edu.hubu.lhy.Weixin_MD;
+package cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,12 +7,14 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import cn.edu.hubu.lhy.Weixin_MD.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SetFragment#newInstance} factory method to
+ * Use the {@link FriFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SetFragment extends Fragment {
+public class FriFragment extends Fragment {
 
 //    // TODO: Rename parameter arguments, choose names that match
 //    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,7 +25,7 @@ public class SetFragment extends Fragment {
 //    private String mParam1;
 //    private String mParam2;
 
-//    public MesFragment() {
+//    public FriFragment() {
         // Required empty public constructor
 //    }
 
@@ -58,6 +60,6 @@ public class SetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_set, container, false);
+        return inflater.inflate(R.layout.fragment_fri, container, false);
     }
 }
