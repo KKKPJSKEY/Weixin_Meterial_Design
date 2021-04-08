@@ -25,25 +25,25 @@
 <!--            android:id="@+id/mesFragment"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
-<!--            android:name="cn.edu.hubu.lhy.bottom_navigation.MesFragment">-->
+<!--            android:name="Weixin_MDment">-->
 <!--        </fragment>-->
 <!--        <fragment-->
 <!--            android:id="@+id/friFragment"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
-<!--            android:name="cn.edu.hubu.lhy.bottom_navigation.FriFragment">-->
+<!--            android:name="Weixin_MDment">-->
 <!--        </fragment>-->
 <!--        <fragment-->
 <!--            android:id="@+id/cttFragment"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
-<!--            android:name="cn.edu.hubu.lhy.bottom_navigation.CttFragment">-->
+<!--            android:name="Weixin_MDment">-->
 <!--        </fragment>-->
 <!--        <fragment-->
 <!--            android:id="@+id/setFragment"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="match_parent"-->
-<!--            android:name="cn.edu.hubu.lhy.bottom_navigation.SetFragment">-->
+<!--            android:name="Weixin_MDment">-->
 <!--        </fragment>-->
     </LinearLayout>
 
