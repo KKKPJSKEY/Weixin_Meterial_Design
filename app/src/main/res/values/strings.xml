@@ -11,6 +11,14 @@
     <string name="friText">这是朋友页面！</string>
     <string name="cttText">这是联系人页面！</string>
     <string name="setText">这是设置页面！</string>
+    <!--顶部到导航栏-->
+    <string name="content_description_favorite">非常喜欢！</string>
+    <string name="favorite">喜欢</string>
+    <string name="content_description_search">全面搜索！</string>
+    <string name="search">搜索</string>
+    <string name="content_description_more">更多功能！</string>
+    <string name="more">更多</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
