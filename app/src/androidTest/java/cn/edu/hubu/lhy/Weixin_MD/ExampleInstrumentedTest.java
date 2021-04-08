@@ -1,4 +1,4 @@
-package cn.edu.hubu.lhy.bottom_navigation;
+package cn.edu.hubu.lhy.Weixin_MD;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("cn.edu.hubu.lhy.bottom_navigation", appContext.getPackageName());
+        assertEquals("cn.edu.hubu.lhy.Weixin_MD", appContext.getPackageName());
     }
 }

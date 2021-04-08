@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Bottom_Navigation"
+rootProject.name = "Weixin-MD"

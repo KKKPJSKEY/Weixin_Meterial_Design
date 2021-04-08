@@ -1,4 +1,4 @@
-package cn.edu.hubu.lhy.bottom_navigation;
+package cn.edu.hubu.lhy.Weixin_MD;
 
 import org.junit.Test;
 

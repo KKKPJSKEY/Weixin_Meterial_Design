@@ -1,4 +1,4 @@
-package cn.edu.hubu.lhy.bottom_navigation;
+package cn.edu.hubu.lhy.Weixin_MD;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CttFragment#newInstance} factory method to
+ * Use the {@link SetFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CttFragment extends Fragment {
+public class SetFragment extends Fragment {
 
 //    // TODO: Rename parameter arguments, choose names that match
 //    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,6 +58,6 @@ public class CttFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ctt, container, false);
+        return inflater.inflate(R.layout.fragment_set, container, false);
     }
 }

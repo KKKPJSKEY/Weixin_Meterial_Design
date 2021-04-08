@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "cn.edu.hubu.lhy.bottom_navigation"
+        applicationId "cn.edu.hubu.lhy.Weixin_MD"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
