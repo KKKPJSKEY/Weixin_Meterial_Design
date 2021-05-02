@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.CttFragment;
 import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.FriFragment;
-import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.MesFragment;
+import cn.edu.hubu.lhy.Weixin_MD.Mes.MesFragment;
 import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.SetFragment;
 
 public class MainActivity extends AppCompatActivity {
