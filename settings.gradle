@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "Weixin-MD"
+rootProject.name = "Music_Box2.0"
