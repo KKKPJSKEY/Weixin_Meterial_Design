@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.CttFragment;
-import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.FriFragment;
+import cn.edu.hubu.lhy.Weixin_MD.Fri.FriFragment;
 import cn.edu.hubu.lhy.Weixin_MD.Mes.MesFragment;
 import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.SetFragment;
 
@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     private CttFragment cttFragment = null;
     private SetFragment setFragment = null;
 
+/*    public MainActivity(){
+
+    }*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottom_navigation_menu = (BottomNavigationView) findViewById(R.id.bottom_navigation_menu);
         bottom_navigation_menu.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mesFragment = new MesFragment();
-        changeFrameLayout("您好", mesFragment);
+
+//        mesFragment = new MesFragment();
+//        changeFrameLayout("您好", mesFragment);
+        friFragment = new FriFragment();
+        changeFrameLayout("您好", friFragment);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -161,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        };
 
-//    @Override
+    //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 ////        MenuInflater inflater=getMenuInflater();
 ////        inflater.inflate(R.menu.bottom_navigation_menu,bnMenu);
@@ -197,4 +204,9 @@ public class MainActivity extends AppCompatActivity {
 //        }
 //        return true;
 //    }
+    @Override
+    public void onDestroy() {  //考虑播放时按返回键
+        super.onDestroy();
+        finish();  //关闭活动
+    }
 }

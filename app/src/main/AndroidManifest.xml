@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="cn.edu.hubu.lhy.Weixin_MD">
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
     <application
         android:allowBackup="true"
@@ -9,6 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bottom_Navigation">
+
+        <service
+            android:name=".Fri.AudioService.AudioService"
+            android:enabled="true"
+            android:exported="true">
+            <!--<intent-filter>
+                            <action android:name="cn.edu.hubu.lhy.Weixin_MD.audio_service_test.MAS" />
+                            <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>-->
+        </service>
+        <service
+            android:name=".Fri.BindAudioService.BindAudioService"
+            android:enabled="true"
+            android:exported="true">
+            <!--<intent-filter>
+                        <action android:name="cn.edu.hubu.lhy.Weixin_MD"/>
+                        <category android:name="android.intent.category.DEFAULT"/>
+                    </intent-filter>-->
+        </service>
+        <service android:name=".Mes.Music_Player.MusicService" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +40,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".Mes.Music_Player.MusicService" />
+
+        <receiver
+            android:name=".Fri.BroadcastReceiver.SmsReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

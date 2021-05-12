@@ -27,7 +27,7 @@ import cn.edu.hubu.lhy.Weixin_MD.Mes.Recycler_View.NatureModel;
  * Use the {@link MesFragment #newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MesFragment extends Fragment implements View.OnClickListener{
+public class MesFragment extends Fragment implements View.OnClickListener {
 
 //    // TODO: Rename parameter arguments, choose names that match
 //    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,7 +72,7 @@ public class MesFragment extends Fragment implements View.OnClickListener{
     // 获取界面中显示歌曲标题、作者文本框
     TextView title, author;
     // 播放/暂停、停止按钮、上一曲按钮，下一曲按钮
-    ImageButton play,stop,next,last;
+    ImageButton play, stop, next, last;
 
     ActivityReceiver activityReceiver;
 
@@ -81,9 +81,13 @@ public class MesFragment extends Fragment implements View.OnClickListener{
     public static final String UPDATE_ACTION =
             "org.xr.action.UPDATE_ACTION";
     // 定义音乐的播放状态，0x11代表没有播放；0x12代表正在播放；0x13代表暂停
+
     int status = 0x11;
-    String[] titleStrs = new String[] { "liangliang", "wuhangya","three" ,"four","fif" };
-    String[] authorStrs = new String[] { "WuBiceng", "A Group people","No Idea","Who sing","This"};
+    String[] titleStrs = new String[]{"Inside the Lines", "Landslide", "Life", "Symphony", "The Spectre"};
+    String[] authorStrs = new String[]{"Mike Perry", "Headhunterz", "Tobu", "Clean Bandit", "Alan Walker"};
+//    String[] titleStrs = new String[] { "liangliang", "wuhangya","three" ,"four","fif" };
+//    String[] authorStrs = new String[] { "WuBiceng", "A Group people","No Idea","Who sing","This"};
+
 
     /**
      * 创建视图代码
@@ -212,5 +216,10 @@ public class MesFragment extends Fragment implements View.OnClickListener{
         }
         // 发送广播，将被Service组件中的BroadcastReceiver接收到
         getActivity().sendBroadcast(intent);
+    }
+    @Override
+    public void onDestroy() {  //考虑播放时按返回键
+        super.onDestroy();
+        getActivity().unregisterReceiver(activityReceiver);//将service与activity解绑
     }
 }
