@@ -104,40 +104,64 @@ public class FriFragment extends Fragment implements View.OnClickListener {
 
 //------------------------------------------------------------------------------------------
 ///////////////////////////////////////////////////////////////////////////////////////////
-        //this
+//        从这改的代码
+//                                              原来是this
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+
             ///////////////////////////////////////////////////////////////////////////////////////////
-            //this
+
+//                                              原来是this
             ActivityCompat.requestPermissions(getActivity(), new String[]{"android.permission.RECEIVE_SMS"}, 1);
+
         }
         bTBCRStop = view.findViewById(R.id.bT_stopMusic);
         ///////////////////////////////////////////////////////////////////////////////////////////
-        //+++++++++++
+
+        //+++++++++++   原来没有 getActivity().
         Intent intent = getActivity().getIntent(); //获取广播意图对象
+
         isCast = intent.getBooleanExtra("iscast", false);  //默认值为false
         bTBCRStop.setEnabled(isCast);   //设置停止按钮可用和单击监听
+
+//        这是我手动做的音乐播放，原来没有这句
         MediaPlayer mediaPlayer = MediaPlayer.create(getContext().getApplicationContext(), R.raw.air);
+
         if (isCast) {
             ///////////////////////////////////////////////////////////////////////////////////////////
-            //this
+
+            //             原来是this
             Toast.makeText(getContext(), "正在播放音乐...", Toast.LENGTH_SHORT).show();
+
+//            这是我手动做的音乐播放开始，原来没有这句
             mediaPlayer.start();//?????????????????????????
+
         }
         bTBCRStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //显式服务调用意图（非绑定式）
                 ///////////////////////////////////////////////////////////////////////////////////////////
-                //MainActivity.this
+
+                //                  原来是MainActivity.this
                 Intent intent = new Intent(getActivity(), MesAudioService.class);
+
                 //在Activity组件里，停止音乐播放服务
                 ///////////////////////////////////////////////////////////////////////////////////////////
+
+//                这是我手动做的音乐播放停止，原来没有这句
                 mediaPlayer.stop();//?????????????????????????
+
+//                                原来是this
                 Toast.makeText(getContext(), "已停止播放音乐！", Toast.LENGTH_SHORT).show();
+
                 //+++++++++++
+                //原来没有 getActivity().
                 getActivity().stopService(intent);
+
                 ///////////////////////////////////////////////////////////////////////////////////////////
+
                 //+++++++++++
+                //原来没有 getActivity().
                 getActivity().finish();  //销毁本活动
             }
         });
@@ -151,15 +175,20 @@ public class FriFragment extends Fragment implements View.OnClickListener {
             case 1:
                 if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     ///////////////////////////////////////////////////////////////////////////////////////////
-                    //this
+                                    //原来是this
                     Toast.makeText(getContext(), "未授权，无法实现预定的功能！", Toast.LENGTH_SHORT).show();
                     ///////////////////////////////////////////////////////////////////////////////////////////
+
                     //+++++++++++
+                    //原来没有 getActivity().
                     getActivity().finish();
+
                 } else {
                     ///////////////////////////////////////////////////////////////////////////////////////////
-                    //this
+
+                                    //原来是this
                     Toast.makeText(getContext(), "请发一条短信验证...", Toast.LENGTH_SHORT).show();
+
                 }
         }
     }
@@ -179,6 +208,7 @@ public class FriFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.bT_SstopMusic:
                 getActivity().stopService(intent);
+                Toast.makeText(getContext(), "音乐播放服务已停止...", Toast.LENGTH_SHORT).show();
                 bTSStop.setEnabled(false);
                 bTSPlay.setEnabled(true);
                 break;
