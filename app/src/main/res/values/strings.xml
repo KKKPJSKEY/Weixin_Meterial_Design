@@ -30,6 +30,16 @@
 <!--信息页面歌名和歌手-->
     <string name="init_song">Inside the Lines</string>
     <string name="init_singer">Mike Perry</string>
+    <!--联系人页面-->
+
+    <string name="ctt_add">添加</string>
+    <string name="ctt_edit">修改</string>
+    <string name="ctt_quary">查询</string>
+    <string name="ctt_del">删除</string>
+
+    <string name="ctt_num">序号</string>
+    <string name="ctt_name">姓名</string>
+    <string name="ctt_tel">电话</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

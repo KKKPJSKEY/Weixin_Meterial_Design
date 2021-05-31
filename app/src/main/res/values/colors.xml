@@ -13,4 +13,6 @@
     <color name="purple_400">#00BB86FC</color>
 
     <color name="purple_300">#99BB86FC</color>
+
+    <color name="gray_200">#dedede</color>
 </resources>

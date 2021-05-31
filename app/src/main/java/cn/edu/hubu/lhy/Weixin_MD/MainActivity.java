@@ -12,7 +12,8 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.CttFragment;
+import cn.edu.hubu.lhy.Weixin_MD.Ctt.CttFragment;
+import cn.edu.hubu.lhy.Weixin_MD.Ctt.CttFragment_a;
 import cn.edu.hubu.lhy.Weixin_MD.Fri.FriFragment;
 import cn.edu.hubu.lhy.Weixin_MD.Mes.MesFragment;
 import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.SetFragment;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private MesFragment mesFragment = null;
     private FriFragment friFragment = null;
     private CttFragment cttFragment = null;
+    private CttFragment_a cttFragment_a = null;
     private SetFragment setFragment = null;
 
 /*    public MainActivity(){
@@ -62,10 +64,14 @@ public class MainActivity extends AppCompatActivity {
                     changeFrameLayout("朋友", friFragment);
                     return true;
                 case R.id.page_Ctt:
-                    if (cttFragment == null) {
-                        cttFragment = new CttFragment();
+//                    if (cttFragment == null) {
+//                        cttFragment = new CttFragment();
+//                    }
+//                    changeFrameLayout("联系人", cttFragment);
+                    if (cttFragment_a == null) {
+                        cttFragment_a = new CttFragment_a();
                     }
-                    changeFrameLayout("联系人", cttFragment);
+                    changeFrameLayout("联系人", cttFragment_a);
                     return true;
                 case R.id.page_Set:
                     if (setFragment == null) {
