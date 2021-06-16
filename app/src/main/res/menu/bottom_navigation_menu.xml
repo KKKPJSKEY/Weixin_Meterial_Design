@@ -5,25 +5,31 @@
     <item
         android:id="@+id/page_Fri"
         android:enabled="true"
-        android:icon="@drawable/tab_weixin_normal"
+        android:icon="@drawable/icon_39"
         android:title="@string/message" />
 
     <item
         android:id="@+id/page_Mes"
         android:enabled="true"
-        android:icon="@drawable/tab_find_frd_normal"
+        android:icon="@drawable/yinle_huaban1"
         android:title="@string/friends" />
 
     <item
         android:id="@+id/page_Ctt"
         android:enabled="true"
-        android:icon="@drawable/tab_address_normal"
+        android:icon="@drawable/lianxiren"
         android:title="@string/contacts" />
 
     <item
         android:id="@+id/page_Set"
         android:enabled="true"
-        android:icon="@drawable/tab_settings_normal"
+        android:icon="@drawable/tubiao_"
         android:title="@string/settings" />
+
+    <item
+        android:id="@+id/page_Net"
+        android:enabled="true"
+        android:icon="@drawable/wangluo"
+        android:title="网络" />
 
 </menu>

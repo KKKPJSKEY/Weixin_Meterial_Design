@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import cn.edu.hubu.lhy.Weixin_MD.Mes.Music_Player.MusicService;
+import cn.edu.hubu.lhy.Weixin_MD.Mes.Music_Player.MusicPlayerStatus;
 import cn.edu.hubu.lhy.Weixin_MD.R;
 import cn.edu.hubu.lhy.Weixin_MD.Mes.Recycler_View.MyAdapter;
 import cn.edu.hubu.lhy.Weixin_MD.Mes.Recycler_View.NatureModel;
@@ -76,6 +77,8 @@ public class MesFragment extends Fragment implements View.OnClickListener {
 
     ActivityReceiver activityReceiver;
 
+    MusicPlayerStatus musicPlayerStatus;
+
     public static final String CTL_ACTION =
             "org.xr.action.CTL_ACTION";
     public static final String UPDATE_ACTION =
@@ -85,6 +88,10 @@ public class MesFragment extends Fragment implements View.OnClickListener {
     int status = 0x11;
     String[] titleStrs = new String[]{"Inside the Lines", "Landslide", "Life", "Symphony", "The Spectre"};
     String[] authorStrs = new String[]{"Mike Perry", "Headhunterz", "Tobu", "Clean Bandit", "Alan Walker"};
+
+    public MesFragment(MusicPlayerStatus musicPlayerStatus) {
+        this.musicPlayerStatus = musicPlayerStatus;
+    }
 //    String[] titleStrs = new String[] { "liangliang", "wuhangya","three" ,"four","fif" };
 //    String[] authorStrs = new String[] { "WuBiceng", "A Group people","No Idea","Who sing","This"};
 
@@ -102,6 +109,7 @@ public class MesFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_mes, container, false);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
 //        RecyclerView recyclerView = findViewById(R.id.recyclerView);
@@ -148,7 +156,10 @@ public class MesFragment extends Fragment implements View.OnClickListener {
 
         Intent intent = new Intent(getActivity(), MusicService.class);
         // 启动后台Service
+
         getActivity().startService(intent);
+        flush(musicPlayerStatus.getUpdate(),musicPlayerStatus.getCurrent());
+
 
         return view;
 
@@ -161,34 +172,41 @@ public class MesFragment extends Fragment implements View.OnClickListener {
         public void onReceive(Context context, Intent intent) {
             // 获取Intent中的update消息，update代表播放状态
             int update = intent.getIntExtra("update", -1);
+            musicPlayerStatus.setUpdate(update);
             // 获取Intent中的current消息，current代表当前正在播放的歌曲
             int current = intent.getIntExtra("current", -1);
-            if (current >= 0) {
-                title.setText(titleStrs[current]);
-                author.setText(authorStrs[current]);
-            }
+            musicPlayerStatus.setCurrent(current);
+            flush(update,current);
+        }
+    }
+
+    public void flush(int update,int current) {
+
+        if (current >= 0) {
+            title.setText(titleStrs[current]);
+            author.setText(authorStrs[current]);
+        }
 
 
-            switch (update) {
-                case 0x11:
-                    play.setImageResource(R.drawable.arrow_right_drop_circle_outline);
-                    status = 0x11;
-                    break;
-                //控制系统进入播放状态
-                case 0x12:
-                    // 播放状态下设置使用暂停图标
-                    play.setImageResource(R.drawable.pause_circle_outline);
-                    // 设置当前状态
-                    status = 0x12;
-                    break;
-                // 控制系统进入暂停状态
-                case 0x13:
-                    // 暂停状态下设置使用播放图标
-                    play.setImageResource(R.drawable.arrow_right_drop_circle_outline);
-                    // 设置当前状态
-                    status = 0x13;
-                    break;
-            }
+        switch (update) {
+            case 0x11:
+                play.setImageResource(R.drawable.arrow_right_drop_circle_outline);
+                status = 0x11;
+                break;
+            //控制系统进入播放状态
+            case 0x12:
+                // 播放状态下设置使用暂停图标
+                play.setImageResource(R.drawable.pause_circle_outline);
+                // 设置当前状态
+                status = 0x12;
+                break;
+            // 控制系统进入暂停状态
+            case 0x13:
+                // 暂停状态下设置使用播放图标
+                play.setImageResource(R.drawable.arrow_right_drop_circle_outline);
+                // 设置当前状态
+                status = 0x13;
+                break;
         }
     }
 
@@ -217,6 +235,15 @@ public class MesFragment extends Fragment implements View.OnClickListener {
         // 发送广播，将被Service组件中的BroadcastReceiver接收到
         getActivity().sendBroadcast(intent);
     }
+
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+////        停止播放音乐
+//        Intent intent = new Intent("org.xr.action.CTL_ACTION");
+//        intent.putExtra("control", 2);
+//    }
+
     @Override
     public void onDestroy() {  //考虑播放时按返回键
         super.onDestroy();

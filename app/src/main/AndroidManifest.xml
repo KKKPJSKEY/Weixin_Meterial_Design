@@ -5,7 +5,34 @@
 
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
+    <!--因为程序要与百度云服务交互-->
+    <!-- 访问网络，进行地图相关业务数据请求，包括地图数据，路线规划，POI检索等 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--百度定位所需要的普通权限-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 获取网络状态，根据网络状态切换进行数据请求网络转换 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- 读取外置存储。如果开发者使用了so动态加载功能并且把so文件放在了外置存储区域，则需要申请该权限，否则不需要 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 写外置存储。如果开发者使用了离线地图，并且数据写在外置存储区域，则需要申请该权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--百度定位所需要权限，前面2个是LOCATE权限组的2个危险权限-->
+    <!-- 这个权限用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 这个权限用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--读取手机状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,7 +43,7 @@
         <service
             android:name=".Fri.AudioService.AudioService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
             <!--<intent-filter>
                             <action android:name="cn.edu.hubu.lhy.Weixin_MD.audio_service_test.MAS" />
                             <category android:name="android.intent.category.DEFAULT" />
@@ -25,13 +52,21 @@
         <service
             android:name=".Fri.BindAudioService.BindAudioService"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
             <!--<intent-filter>
                         <action android:name="cn.edu.hubu.lhy.Weixin_MD"/>
                         <category android:name="android.intent.category.DEFAULT"/>
                     </intent-filter>-->
         </service>
-        <service android:name=".Mes.Music_Player.MusicService" />
+        <service
+            android:name=".Mes.Music_Player.MusicService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name=".Fri.BroadcastReceiver.MesAudioService"
+            android:enabled="true"
+            android:exported="false" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -49,6 +84,14 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="mKWqXae3dBPWUcNmfdeWnPV2NmmfTlcT" />
+        <!--应用Key是在百度开发者页面里生成的，需要替换-->
     </application>
 
 </manifest>

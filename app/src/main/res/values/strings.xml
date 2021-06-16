@@ -5,7 +5,7 @@
     <string name="message">信息</string>
     <string name="friends">音乐</string>
     <string name="contacts">联系人</string>
-    <string name="settings">设置</string>
+    <string name="settings">地图</string>
     <!--    界面二级标题-->
     <string name="mesText">这是朋友页面！</string>
     <string name="friBCRText">这是后台音乐播放，上面的按钮点击则后台播放音乐，下面的按钮点击后则停止后台播放音乐！</string>
@@ -25,21 +25,28 @@
     <string name="search">搜索</string>
     <string name="content_description_more">更多功能！</string>
     <string name="more">更多</string>
-<!--    朋友页面唯一按钮-->
+    <!--    朋友页面唯一按钮-->
     <string name="fri_btn">Stop Music!</string>
-<!--信息页面歌名和歌手-->
+    <!--信息页面歌名和歌手-->
     <string name="init_song">Inside the Lines</string>
     <string name="init_singer">Mike Perry</string>
     <!--联系人页面-->
-
+    <!--数据库操作按钮文字-->
     <string name="ctt_add">添加</string>
     <string name="ctt_edit">修改</string>
     <string name="ctt_quary">查询</string>
     <string name="ctt_del">删除</string>
-
+    <!--数据库列表表头-->
     <string name="ctt_num">序号</string>
     <string name="ctt_name">姓名</string>
     <string name="ctt_tel">电话</string>
+    <!--地图定位-->
+    <string name="set_Lat">纬度</string>
+    <string name="set_Lon">经度</string>
+    <string name="set_Add">地址</string>
+    <string name="set_Dsc">描述</string>
+    <string name="set_Drt">方向</string>
+    <string name="set_Rds">半径</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

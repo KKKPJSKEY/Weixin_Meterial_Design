@@ -15,4 +15,6 @@
     <color name="purple_300">#99BB86FC</color>
 
     <color name="gray_200">#dedede</color>
+
+    <color name="tranparant_55">#55000000</color>
 </resources>

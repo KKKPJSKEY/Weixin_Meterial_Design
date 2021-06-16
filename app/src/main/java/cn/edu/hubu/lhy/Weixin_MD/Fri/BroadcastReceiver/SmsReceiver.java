@@ -6,6 +6,7 @@ import android.content.Intent;
 
 import cn.edu.hubu.lhy.Weixin_MD.Fri.FriFragment;
 import cn.edu.hubu.lhy.Weixin_MD.MainActivity;
+import cn.edu.hubu.lhy.Weixin_MD.MyApplication;
 
 public class SmsReceiver extends BroadcastReceiver {
 
@@ -28,6 +29,7 @@ public class SmsReceiver extends BroadcastReceiver {
 
         //新建调用Activity组件的意图
         Intent activityIntent = new Intent(context, MainActivity.class);
+//        System.out.println("我收到了信息了----------------------------------------------");
         activityIntent.putExtra("iscast", true);  //携带数据
         //新建栈用来存放被启动的Activity（当已经存在时，只做移动处理）
         activityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

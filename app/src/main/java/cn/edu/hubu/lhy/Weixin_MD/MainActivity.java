@@ -16,7 +16,9 @@ import cn.edu.hubu.lhy.Weixin_MD.Ctt.CttFragment;
 import cn.edu.hubu.lhy.Weixin_MD.Ctt.CttFragment_a;
 import cn.edu.hubu.lhy.Weixin_MD.Fri.FriFragment;
 import cn.edu.hubu.lhy.Weixin_MD.Mes.MesFragment;
-import cn.edu.hubu.lhy.Weixin_MD.Bottom_Navigation.SetFragment;
+import cn.edu.hubu.lhy.Weixin_MD.Mes.Music_Player.MusicPlayerStatus;
+import cn.edu.hubu.lhy.Weixin_MD.Net.NetFragment;
+import cn.edu.hubu.lhy.Weixin_MD.Set.SetFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
     private CttFragment cttFragment = null;
     private CttFragment_a cttFragment_a = null;
     private SetFragment setFragment = null;
+    private NetFragment netFragment = null;
+
+    private Fragment current = null;
+
+public MusicPlayerStatus musicPlayerStatus=new MusicPlayerStatus();
 
 /*    public MainActivity(){
 
@@ -40,8 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
 //        mesFragment = new MesFragment();
 //        changeFrameLayout("您好", mesFragment);
-        friFragment = new FriFragment();
-        changeFrameLayout("您好", friFragment);
+//        friFragment = new FriFragment();
+//        changeFrameLayout("您好", friFragment);
+        current=changeFrameLayout("您好", new FriFragment(),current);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -52,32 +60,40 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.page_Mes:
-                    if (mesFragment == null) {
-                        mesFragment = new MesFragment();
-                    }
-                    changeFrameLayout("信息", mesFragment);
+//                    if (mesFragment == null) {
+//                        mesFragment = new MesFragment();
+//                    }
+                    current=changeFrameLayout("音乐", new MesFragment(musicPlayerStatus),current);
                     return true;
                 case R.id.page_Fri:
-                    if (friFragment == null) {
-                        friFragment = new FriFragment();
-                    }
-                    changeFrameLayout("朋友", friFragment);
+//                    if (friFragment == null) {
+//                        friFragment = new FriFragment();
+//                    }
+                    current=changeFrameLayout("信息", new FriFragment(),current);
                     return true;
                 case R.id.page_Ctt:
 //                    if (cttFragment == null) {
 //                        cttFragment = new CttFragment();
 //                    }
 //                    changeFrameLayout("联系人", cttFragment);
-                    if (cttFragment_a == null) {
-                        cttFragment_a = new CttFragment_a();
-                    }
-                    changeFrameLayout("联系人", cttFragment_a);
+//                    if (cttFragment_a == null) {
+//                        cttFragment_a = new CttFragment_a();
+//                    }
+//                    changeFrameLayout("联系人", new CttFragment(),current);
+                    current=changeFrameLayout("联系人", new CttFragment_a(),current);
                     return true;
                 case R.id.page_Set:
-                    if (setFragment == null) {
-                        setFragment = new SetFragment();
-                    }
-                    changeFrameLayout("设置", setFragment);
+//                    if (setFragment == null) {
+//                        setFragment = new SetFragment();
+//                    }
+                    current=changeFrameLayout("地图", new SetFragment(),current);
+                    return true;
+
+                case R.id.page_Net:
+//                    if (setFragment == null) {
+//                        setFragment = new SetFragment();
+//                    }
+                    current=changeFrameLayout("网络", new NetFragment(),current);
                     return true;
             }
             return false;
@@ -90,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
      * @param string   提示信息
      * @param fraGment 要替换成的fragment
      */
-    private void changeFrameLayout(String string, Fragment fraGment) {
+    private Fragment changeFrameLayout(String string, Fragment fraGment,Fragment current) {
         //弹窗
         Toast.makeText(MainActivity.this, string, Toast.LENGTH_SHORT).show();
 //      mTextMessage.setText(R.string.title_dashboard);
@@ -99,12 +115,19 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = fagmentManager.beginTransaction();
 //      fragmentTransaction.hide(mesFragment);
         //替换操作
-        fragmentTransaction.replace(R.id.frameLayout, fraGment);
+
+        if(current!=null)fragmentTransaction.remove(current);
+//        current.getActivity().onBackPressed();
+        fragmentTransaction.add(R.id.frameLayout,fraGment);
+        current =fraGment;
+//        fragmentTransaction.replace(R.id.frameLayout, fraGment);
         //事务具有原子性，类似数据库，每一次操作完成需要提交操作
         fragmentTransaction.commit();
 //      fragmentTransaction.show(friFragment);
 //      fragmentTransaction.hide(mesFragment);
+        return current;
     }
+
 
 //    public class MainActivity extends AppCompatActivity {
 //        protected Fragment currentFragment = new Fragment();

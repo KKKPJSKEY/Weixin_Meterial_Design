@@ -106,7 +106,7 @@ public class FriFragment extends Fragment implements View.OnClickListener {
 ///////////////////////////////////////////////////////////////////////////////////////////
 //        从这改的代码
 //                                              原来是this
-        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
 
             ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -124,7 +124,7 @@ public class FriFragment extends Fragment implements View.OnClickListener {
         bTBCRStop.setEnabled(isCast);   //设置停止按钮可用和单击监听
 
 //        这是我手动做的音乐播放，原来没有这句
-        MediaPlayer mediaPlayer = MediaPlayer.create(getContext().getApplicationContext(), R.raw.air);
+//        MediaPlayer mediaPlayer = MediaPlayer.create(getContext().getApplicationContext(), R.raw.air);
 
         if (isCast) {
             ///////////////////////////////////////////////////////////////////////////////////////////
@@ -133,7 +133,7 @@ public class FriFragment extends Fragment implements View.OnClickListener {
             Toast.makeText(getContext(), "正在播放音乐...", Toast.LENGTH_SHORT).show();
 
 //            这是我手动做的音乐播放开始，原来没有这句
-            mediaPlayer.start();//?????????????????????????
+//            mediaPlayer.start();//?????????????????????????
 
         }
         bTBCRStop.setOnClickListener(new View.OnClickListener() {
@@ -144,12 +144,14 @@ public class FriFragment extends Fragment implements View.OnClickListener {
 
                 //                  原来是MainActivity.this
                 Intent intent = new Intent(getActivity(), MesAudioService.class);
-
+//                Intent intent = new Intent(getContext(),MesAudioService.class);
+//                Intent intent = new Intent(getActivity().getApplicationContext(),MesAudioService.class);
+//                Intent intent = new Intent(,MesAudioService.class);
                 //在Activity组件里，停止音乐播放服务
                 ///////////////////////////////////////////////////////////////////////////////////////////
 
 //                这是我手动做的音乐播放停止，原来没有这句
-                mediaPlayer.stop();//?????????????????????????
+//                mediaPlayer.stop();//?????????????????????????
 
 //                                原来是this
                 Toast.makeText(getContext(), "已停止播放音乐！", Toast.LENGTH_SHORT).show();
@@ -175,7 +177,7 @@ public class FriFragment extends Fragment implements View.OnClickListener {
             case 1:
                 if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                     ///////////////////////////////////////////////////////////////////////////////////////////
-                                    //原来是this
+                    //原来是this
                     Toast.makeText(getContext(), "未授权，无法实现预定的功能！", Toast.LENGTH_SHORT).show();
                     ///////////////////////////////////////////////////////////////////////////////////////////
 
@@ -186,7 +188,7 @@ public class FriFragment extends Fragment implements View.OnClickListener {
                 } else {
                     ///////////////////////////////////////////////////////////////////////////////////////////
 
-                                    //原来是this
+                    //原来是this
                     Toast.makeText(getContext(), "请发一条短信验证...", Toast.LENGTH_SHORT).show();
 
                 }
@@ -239,11 +241,13 @@ public class FriFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onDestroy() {  //考虑播放时按返回键
-//        if(conn!=null){
-//            getActivity().unbindService(conn);//将service与activity解绑
-//        }
         super.onDestroy();
-        if (intent != null) getActivity().stopService(intent); //停止服务
+        if(conn!=null){
+            getActivity().unbindService(conn);//将service与activity解绑
+        }
+//        if (intent != null)
+//        getActivity().stopService(intent); //停止服务
+//        getActivity().unbindService(conn);
 //        getActivity().finish();  //关闭活动
     }
 }
