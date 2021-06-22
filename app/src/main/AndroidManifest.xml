@@ -38,7 +38,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Bottom_Navigation">
+        android:theme="@style/Theme.Bottom_Navigation"
+        android:usesCleartextTraffic="true">
 
         <service
             android:name=".Fri.AudioService.AudioService"

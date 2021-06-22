@@ -48,6 +48,26 @@
     <string name="set_Drt">方向</string>
     <string name="set_Rds">半径</string>
 
+    <!--网络登录页-->
+    <string name="net_Title">欢迎登陆小米商城后台管理系统</string>
+    <string name="net_UserName">用户名</string>
+    <string name="net_RealUserName">admin</string>
+    <string name="net_PassWard">密码</string>
+    <string name="net_RealPassWard">123456</string>
+    <string name="net_LoginButton">立即登录</string>
+
+    <string name="net_Succ_Title">小米商城商品查询云计算平台</string>
+    <string name="net_Succ_GoodsIdRangeFrontMes">商品ID范围：正在查询</string>
+    <string name="net_Succ_GoodsId">商品ID</string>
+    <string name="net_Succ_GoodsSearch">搜索商品</string>
+    <string name="net_Succ_GoodsName">商品名</string>
+    <string name="net_Succ_GoodsType">商品类别</string>
+    <string name="net_Succ_GoodsPrice">商品价格</string>
+    <string name="net_Succ_GoodsNum">商品库存</string>
+    <string name="net_Succ_GoodsDesc">商品描述</string>
+    <string name="net_Succ_GoodsDetail">商品详情</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

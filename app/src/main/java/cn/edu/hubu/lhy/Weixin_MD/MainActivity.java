@@ -22,16 +22,25 @@ import cn.edu.hubu.lhy.Weixin_MD.Set.SetFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MesFragment mesFragment = null;
-    private FriFragment friFragment = null;
-    private CttFragment cttFragment = null;
-    private CttFragment_a cttFragment_a = null;
-    private SetFragment setFragment = null;
-    private NetFragment netFragment = null;
+//    private MesFragment mesFragment = null;
+//    private FriFragment friFragment = null;
+//    private CttFragment cttFragment = null;
+//    private CttFragment_a cttFragment_a = null;
+//    private SetFragment setFragment = null;
+//    private NetFragment netFragment = null;
+//    private NetSuccFragment netSuccFragment = null;
 
-    private Fragment current = null;
+    public Fragment current = null;
 
-public MusicPlayerStatus musicPlayerStatus=new MusicPlayerStatus();
+    public Fragment getCurrent() {
+        return current;
+    }
+
+    public void setCurrent(Fragment current) {
+        this.current = current;
+    }
+
+    public MusicPlayerStatus musicPlayerStatus=new MusicPlayerStatus();
 
 /*    public MainActivity(){
 
@@ -106,7 +115,7 @@ public MusicPlayerStatus musicPlayerStatus=new MusicPlayerStatus();
      * @param string   提示信息
      * @param fraGment 要替换成的fragment
      */
-    private Fragment changeFrameLayout(String string, Fragment fraGment,Fragment current) {
+    public Fragment changeFrameLayout(String string, Fragment fraGment, Fragment current) {
         //弹窗
         Toast.makeText(MainActivity.this, string, Toast.LENGTH_SHORT).show();
 //      mTextMessage.setText(R.string.title_dashboard);
